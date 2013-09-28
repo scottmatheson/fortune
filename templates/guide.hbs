@@ -20,7 +20,7 @@ var options = {
 var app = fortune(options);
 ```
 
-*Note: the `options` object is [explained in detail in the documentation](/docs/#options).*
+*Note: the `options` object is [explained in detail in the documentation](../docs/#options).*
 
 ---
 
@@ -38,7 +38,7 @@ app.resource('user', {
 
 *Note: an example of a secure application is located at [examples/keystore.js](//github.com/daliwali/fortune/blob/master/examples/keystore.js).*
 
-The routes to `GET` and `POST` the collection of users, and to `GET`, `POST`, `PUT`, `PATCH`, and `DELETE` an individual user are set up under `/users` and `/users/:id` respectively (note the pluralization of "user"). Unsafe operations, such as replacing or deleting a collection, are not allowed. Additionally, a resource can be marked as [read-only](/docs/#readOnly) or [not having a collection index](/docs/#noIndex).
+The routes to `GET` and `POST` the collection of users, and to `GET`, `POST`, `PUT`, `PATCH`, and `DELETE` an individual user are set up under `/users` and `/users/:id` respectively (note the pluralization of "user"). Unsafe operations, such as replacing or deleting a collection, are not allowed. Additionally, a resource can be marked as [read-only](../docs/#readOnly) or [not having a collection index](../docs/#noIndex).
 
 ---
 
@@ -54,7 +54,7 @@ app.resource('person', {
 });
 ```
 
-*Note: the schema definition is [explained in the documentation](/docs/#resource).*
+*Note: the schema definition is [explained in the documentation](../docs/#resource).*
 
 In this example, `spouse` is a one-to-one relationship, while `lovers` is a many-to-many relationship. The array syntax indicates whether there are many associations. Associations are assumed to be bi-directional, so a `person` cannot have a `spouse` that does not reciprocate.
 
@@ -73,14 +73,14 @@ app.after('person', function(request) {
 });
 ```
 
-The callback function is called within the context of the resource, and it has one parameter: the request object. There is also a convenience method, *[transform](/docs/#transform)*, which defines both before & after simultaneously.
+The callback function is called within the context of the resource, and it has one parameter: the request object. There is also a convenience method, *[transform](../docs/#transform)*, which defines both before & after simultaneously.
 
 ---
 
 ### Adapter Methods and Advanced Usage
 
-The database adapter can be called directly, see the [documentation](/docs/) for details.
+The database adapter can be called directly, see the [documentation](../docs/) for details.
 
-Fortune uses `express` as a router, which can be extended by [using](/docs/#use) `connect` middleware, or by accessing the `router` namespace of Fortune.
+Fortune uses `express` as a router, which can be extended by [using](../docs/#use) `connect` middleware, or by accessing the `router` namespace of Fortune.
 
 {{/markdown}}

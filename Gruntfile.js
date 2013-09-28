@@ -110,7 +110,16 @@ module.exports = function(grunt) {
         files: ['**/*.hbs'],
         tasks: 'assemble'
       }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 5000
+        }
+      }
     }
+
   });
 
   [
@@ -119,6 +128,7 @@ module.exports = function(grunt) {
     'grunt-contrib-concat',
     'grunt-contrib-less',
     'grunt-contrib-uglify',
+    'grunt-contrib-connect',
     'grunt-contrib-watch'
   ]
   .forEach(function(task) {
@@ -130,7 +140,9 @@ module.exports = function(grunt) {
     'uglify',
     'less',
     'exec',
-    'assemble'
+    'assemble',
+    'connect',
+    'watch'
   ]);
 
 };

@@ -11,7 +11,7 @@ $ sudo npm install -g grunt-cli dox
 Then run:
 
 ```
-$ npm install && grunt && npm start
+$ npm install && grunt
 ```
 
 Then point your browser to `localhost:5000`.
