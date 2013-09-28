@@ -2,7 +2,9 @@
   "name": "fortune-web",
   "description": "Website for Fortune.js.",
   "homepage": "http://fortunejs.com",
-  "main": "server",
+  "scripts": {
+    "start": "grunt"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/daliwali/fortune"
