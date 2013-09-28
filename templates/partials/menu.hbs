@@ -38,7 +38,7 @@
   {{#each fortune}}
     {{#unless ignore}}
       {{#unless isPrivate}}
-        <li>- <a href="{{#unless about}}../{{/unless}}docs/#{{ctx.name}}">{{ctx.name}}</a></li>
+        <li>- <a href="../docs/#{{ctx.name}}">{{ctx.name}}</a></li>
       {{/unless}}
     {{/unless}}
   {{/each}}
@@ -49,7 +49,7 @@
   {{#each adapter}}
     {{#unless ignore}}
       {{#unless isPrivate}}
-        <li>- <a href="{{#unless about}}../{{/unless}}docs/#{{ctx.name}}">{{ctx.name}}</a></li>
+        <li>- <a href="../docs/#{{ctx.name}}">{{ctx.name}}</a></li>
       {{/unless}}
     {{/unless}}
   {{/each}}
