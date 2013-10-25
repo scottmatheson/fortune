@@ -45,6 +45,10 @@ nav {
 		.body-type;
 		margin: 0;
 		list-style-type: none;
+		em {
+			font-size: 1em * 3 / 5;
+			color: @light-color;
+		}
 		a {
 			color: @primary-color;
 			position: relative;
@@ -157,6 +161,7 @@ article {
 }
 
 hr {
+	.clear;
 	position: relative;
 	height: @line-height * 3 / 3;
 	margin: 0 0 @line-height * 4 / 3;
@@ -248,17 +253,25 @@ footer {
 
 .table-container {
 	overflow: auto;
+	table {
+		min-width: 100%;
+	}
 }
 
 .feature {
+	.cf;
+	float: left;
+	width: 100% / 3;
+	padding: 0 @gutter-width;
+	text-align: center;
 	i {
-		@size: 2;
+		@size: 3;
 		font-size: 1em * @size;
 		line-height: @line-height;
-		width: 1.8em;
-		float: left;
-		padding-right: @gutter-width / @size;
-		opacity: 1 / 4;
+		display: block;
+		margin: 0 auto;
+		color: @quaternary-color;
+		opacity: 1 / 2;
 	}
 }
 

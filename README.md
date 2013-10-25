@@ -14,4 +14,4 @@ Then run:
 $ npm install && grunt
 ```
 
-Then point your browser to `localhost:5000`.
+Then point your browser to `localhost:4000`.

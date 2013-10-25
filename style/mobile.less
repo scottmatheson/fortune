@@ -22,6 +22,9 @@
 		height: auto;
 		overflow: visible;
 		.bottom, .module, hr, a[href^="//"], h3 { display: none; }
+		img {
+			height: @line-height * 2;
+		}
 		ul {
 			a {
 				margin-left: -@gutter-width * 2 / 3;
@@ -48,11 +51,23 @@
 			margin-bottom: 0;
 		}
 	}
-	table {
-		margin-bottom: 0;
+	.feature {
+		width: auto;
+		text-align: left;
+		padding: 0;
+		float: none;
+		i {
+			@size: 2;
+			float: left;
+			font-size: 1em * @size;
+			margin: 0 @gutter-width / @size 0 0;
+		}
 	}
 	.table-container {
 		margin-bottom: @line-height;
+		table {
+			margin-bottom: 0;
+		}
 	}
 	.get {
 		a {
