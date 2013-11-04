@@ -357,7 +357,7 @@
           "Array",
           "Object"
         ],
-        "name": "query",
+        "name": "[query]",
         "description": "either an array of IDs, or a query object"
       },
       {
