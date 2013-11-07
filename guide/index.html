@@ -145,12 +145,12 @@
             <p>Resources have two hooks for application-specific logic: <code>before</code> and <code>after</code>. <em>Before</em> is called when the API receives a request to write to the database, and <em>after</em> is called when the API receives a request
                 to read from the database. Transformations do not affect calling methods on the <code>adapter</code> directly.</p>
             <p>Suppose that we do not wish to reveal a <code>person</code>&#39;s <code>lovers</code>:</p>
-            <pre><code class="language-javascript">app.after(<span class="string">'person'</span>, <span class="keyword">function</span>(request) {
+            <pre><code class="language-javascript">app.after(<span class="string">'person'</span>, <span class="keyword">function</span>(request, response) {
   <span class="keyword">delete</span> <span class="keyword">this</span>.links.lovers;
   <span class="keyword">return</span> <span class="keyword">this</span>;
 });</code></pre>
-            <p>The callback function is called within the context of the resource, and it has one parameter: the request object. There is also a convenience method, <em><a href="../docs/#transform">transform</a></em>, which defines both before &amp; after
-                simultaneously.</p>
+            <p>The callback function is called within the context of the resource, and it has two optional parameters: the request and response objects. There is also a convenience method, <em><a href="../docs/#transform">transform</a></em>, which defines
+                both before &amp; after simultaneously.</p>
             <hr>
             <h3>Adapter Methods and Advanced Usage</h3>
             <p>The database adapter can be called directly, see the <a href="../docs/">documentation</a> for details.</p>

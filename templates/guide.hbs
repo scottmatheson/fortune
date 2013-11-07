@@ -67,13 +67,13 @@ Resources have two hooks for application-specific logic: `before` and `after`. *
 Suppose that we do not wish to reveal a `person`'s `lovers`:
 
 ```javascript
-app.after('person', function(request) {
+app.after('person', function(request, response) {
   delete this.links.lovers;
   return this;
 });
 ```
 
-The callback function is called within the context of the resource, and it has one parameter: the request object. There is also a convenience method, *[transform](../docs/#transform)*, which defines both before & after simultaneously.
+The callback function is called within the context of the resource, and it has two optional parameters: the request and response objects. There is also a convenience method, *[transform](../docs/#transform)*, which defines both before & after simultaneously.
 
 ---
 
