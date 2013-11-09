@@ -11,7 +11,7 @@
 		right: 100% / 2;
 		width: 100%;
 		height: 100%;
-		background-color: @menu-color;
+		background-color: darken(@menu-color, 6%);
 	}
 }
 
@@ -163,7 +163,7 @@ hr {
 	.clear;
 	position: relative;
 	height: @line-height * 3 / 3;
-	margin: 0 0 @line-height * 4 / 3;
+	margin: 0 0 @line-height * 5 / 3;
 	&:before {
 		position: absolute;
 		display: block;
@@ -172,7 +172,7 @@ hr {
 		left: 0;
 		width: 100%;
 		height: 0;
-		border-bottom: 1px @menu-color solid;
+		border-bottom: 1px darken(@menu-color, 4%) solid;
 	}
 }
 
