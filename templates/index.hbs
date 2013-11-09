@@ -15,27 +15,8 @@ about: true
   </a>
 </div>
 <hr>
-<div class="feature">
-  <p>
-    <i class="icon-coffee"></i>
-    Focus on ease of use. Fortune gives you routing and database interactions for free, so you don't have to do the plumbing.
-  </p>
-</div>
-<div class="feature">
-  <p>
-    <i class="icon-exchange"></i>
-    Associations and bi-directional relationship mapping. Fortune manages associations between resources so you don't have to.
-  </p>
-</div>
-<div class="feature">
-  <p>
-    <i class="icon-cogs"></i>
-    Hooks to transform resources before writing and after reading, for implementing application-specific logic (and magic).
-  </p>
-</div>
-<hr>
 <h3>Basic Usage</h3>
-<p>Here is a minimal application:</p>
+<p>Here is a minimal application that exposes two resources that can link to each other:</p>
 {{#markdown}}
 ```javascript
 var fortune = require('fortune')
@@ -125,3 +106,24 @@ var fortune = require('fortune')
 </div>
 
 <p>Please consult the <a href="http://jsonapi.org">JSON API</a> specification for what the request and response should look like. Read the <a href="guide/">guide</a> for an overview, or the <a href="docs/">documentation</a> if you feel like diving in.</p>
+
+<hr>
+<div class="feature">
+  <p>
+    <i class="icon-coffee"></i>
+    Focus on ease of use. Fortune gives you routing and database interactions for free, so you don't have to do the plumbing.
+  </p>
+</div>
+<div class="feature">
+  <p>
+    <i class="icon-exchange"></i>
+    Associations and bi-directional relationship mapping. Fortune manages associations between resources so you don't have to.
+  </p>
+</div>
+<div class="feature">
+  <p>
+    <i class="icon-cogs"></i>
+    Hooks to transform resources before writing and after reading, for implementing application-specific logic (and magic).
+  </p>
+</div>
+<div class="clear"></div>
