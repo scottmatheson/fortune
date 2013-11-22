@@ -191,10 +191,10 @@
       <a href="#before" class="anchor">&sect;</a>
     </h4>
                 <p>Do something before a resource is saved in the database.
-                    <br />The callback function has one parameter, the request object.
+                    <br />The callback function has two optional parameters, the request and response objects, respectively.
                     <br />It may return either the resource or a promise. Here's a contrived
                     <br />example that stores the Authorization header into a resource:</p>
-                <div class="highlight"><pre lang="javascript">app.before('resource', function(request) {
+                <div class="highlight"><pre lang="javascript">app.before('resource', function(request, response) {
   var authorization = request.get('Authorization');
   if(!authorization) throw new Error('Authorization failed');
   this.authorization = authorization;
@@ -205,7 +205,7 @@
                 <h4>Parameters</h4>
                 <ul>
                     <li><b>name</b> (<span class="types"><span class="type">String</span></span>): may be space separated, i.e. &#x27;cat dog human&#x27;</li>
-                    <li><b>fn</b> (<span class="types"><span class="type">Function</span></span>): this callback function is called within the context of the resource, and has one parameter: the request object.</li>
+                    <li><b>fn</b> (<span class="types"><span class="type">Function</span></span>): this callback function is called within the context of the resource, and has two optional parameters: the request and response objects, respectively.</li>
                 </ul>
                 <a id="after"></a>
                 <hr>
@@ -227,7 +227,7 @@
       <a href="#after" class="anchor">&sect;</a>
     </h4>
                 <p>Do something after a resource is read from the database.
-                    <br />The callback function has one parameter, the request object.
+                    <br />The callback function has two optional parameters, the request and response objects, respectively.
                     <br />It may return either the resource or a promise. Here's a contrived
                     <br />example that hides a <code>password</code> and <code>salt</code> from being exposed:</p>
                 <div class="highlight"><pre lang="javascript">app.after('user', function() {
@@ -240,7 +240,7 @@
                 <h4>Parameters</h4>
                 <ul>
                     <li><b>name</b> (<span class="types"><span class="type">String</span></span>): may be space separated, i.e. &#x27;cat dog human&#x27;</li>
-                    <li><b>fn</b> (<span class="types"><span class="type">Function</span></span>): this callback function is called within the context of the resource, and has one parameter: the request object.</li>
+                    <li><b>fn</b> (<span class="types"><span class="type">Function</span></span>): this callback function is called within the context of the resource, and has two optional parameters: the request and response objects, respectively.</li>
                 </ul>
                 <a id="transform"></a>
                 <hr>

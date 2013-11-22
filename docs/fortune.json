@@ -238,7 +238,7 @@
           "Function"
         ],
         "name": "fn",
-        "description": "this callback function is called within the context of the resource, and has one parameter: the request object."
+        "description": "this callback function is called within the context of the resource, and has two optional parameters: the request and response objects, respectively."
       },
       {
         "type": "return",
@@ -249,9 +249,9 @@
       }
     ],
     "description": {
-      "full": "<p>Do something before a resource is saved in the database.<br />The callback function has one parameter, the request object.<br />It may return either the resource or a promise. Here's a contrived<br />example that stores the Authorization header into a resource:</p>\n\n<div class=\"highlight\"><pre lang=\"javascript\">app.before('resource', function(request) {\n  var authorization = request.get('Authorization');\n  if(!authorization) throw new Error('Authorization failed');\n  this.authorization = authorization;\n  return this;\n});\n</pre></div>",
-      "summary": "<p>Do something before a resource is saved in the database.<br />The callback function has one parameter, the request object.<br />It may return either the resource or a promise. Here's a contrived<br />example that stores the Authorization header into a resource:</p>",
-      "body": "<div class=\"highlight\"><pre lang=\"javascript\">app.before('resource', function(request) {\n  var authorization = request.get('Authorization');\n  if(!authorization) throw new Error('Authorization failed');\n  this.authorization = authorization;\n  return this;\n});\n</pre></div>"
+      "full": "<p>Do something before a resource is saved in the database.<br />The callback function has two optional parameters, the request and response objects, respectively.<br />It may return either the resource or a promise. Here's a contrived<br />example that stores the Authorization header into a resource:</p>\n\n<div class=\"highlight\"><pre lang=\"javascript\">app.before('resource', function(request, response) {\n  var authorization = request.get('Authorization');\n  if(!authorization) throw new Error('Authorization failed');\n  this.authorization = authorization;\n  return this;\n});\n</pre></div>",
+      "summary": "<p>Do something before a resource is saved in the database.<br />The callback function has two optional parameters, the request and response objects, respectively.<br />It may return either the resource or a promise. Here's a contrived<br />example that stores the Authorization header into a resource:</p>",
+      "body": "<div class=\"highlight\"><pre lang=\"javascript\">app.before('resource', function(request, response) {\n  var authorization = request.get('Authorization');\n  if(!authorization) throw new Error('Authorization failed');\n  this.authorization = authorization;\n  return this;\n});\n</pre></div>"
     },
     "isPrivate": false,
     "ignore": false,
@@ -280,7 +280,7 @@
           "Function"
         ],
         "name": "fn",
-        "description": "this callback function is called within the context of the resource, and has one parameter: the request object."
+        "description": "this callback function is called within the context of the resource, and has two optional parameters: the request and response objects, respectively."
       },
       {
         "type": "return",
@@ -291,8 +291,8 @@
       }
     ],
     "description": {
-      "full": "<p>Do something after a resource is read from the database.<br />The callback function has one parameter, the request object.<br />It may return either the resource or a promise. Here's a contrived<br />example that hides a <code>password</code> and <code>salt</code> from being exposed:</p>\n\n<div class=\"highlight\"><pre lang=\"javascript\">app.after('user', function() {\n  delete this.password;\n  delete this.salt;\n  return this;\n});\n</pre></div>",
-      "summary": "<p>Do something after a resource is read from the database.<br />The callback function has one parameter, the request object.<br />It may return either the resource or a promise. Here's a contrived<br />example that hides a <code>password</code> and <code>salt</code> from being exposed:</p>",
+      "full": "<p>Do something after a resource is read from the database.<br />The callback function has two optional parameters, the request and response objects, respectively.<br />It may return either the resource or a promise. Here's a contrived<br />example that hides a <code>password</code> and <code>salt</code> from being exposed:</p>\n\n<div class=\"highlight\"><pre lang=\"javascript\">app.after('user', function() {\n  delete this.password;\n  delete this.salt;\n  return this;\n});\n</pre></div>",
+      "summary": "<p>Do something after a resource is read from the database.<br />The callback function has two optional parameters, the request and response objects, respectively.<br />It may return either the resource or a promise. Here's a contrived<br />example that hides a <code>password</code> and <code>salt</code> from being exposed:</p>",
       "body": "<div class=\"highlight\"><pre lang=\"javascript\">app.after('user', function() {\n  delete this.password;\n  delete this.salt;\n  return this;\n});\n</pre></div>"
     },
     "isPrivate": false,
