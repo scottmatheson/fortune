@@ -34,7 +34,7 @@ nav {
 	width: @menu-width;
 	height: 100%;
 	overflow: auto;
-	padding: @line-height * 7 / 3 @gutter-width 0;
+	padding: @line-height * 7 / 3 @gutter-width * 4 / 3 0;
 	img {
 		display: block;
 		margin: 0 auto;
@@ -139,11 +139,11 @@ nav {
 }
 
 article {
-	@side: @gutter-width * 3;
+	@side: @gutter-width * 8 / 3;
 	background-color: @background-color;
 	position: relative;
 	min-height: 100%;
-	margin: 0 @gutter-width * 2 / 3 0 @menu-width + @side;
+	margin: 0 @gutter-width 0 @menu-width + @side;
 	padding: @line-height * 5 / 3 0 @line-height * 16 / 3;
 	&:before {
 		width: @side;
@@ -180,6 +180,7 @@ pre {
 	background-color: @subtle-color;
 	padding: @line-height * 1 / 3 @gutter-width / 2;
 	border-radius: 0.3em;
+	border: 1px darken(@menu-color, 4%) solid;
 	margin: 0 0 @line-height;
 	.keyword { color: @secondary-color; }
 	.number { color: @primary-color; }
@@ -196,6 +197,8 @@ table {
 	color: @light-color;
 	border-collapse: collapse;
     border-spacing: 0;
+    border: 1px darken(@menu-color, 4%) solid;
+	border-radius: 0.3em;
     margin: 0 0 @line-height;
 	th, td {
 		padding: @line-height * 1 / 3 @gutter-width / 2;
