@@ -35,7 +35,8 @@ nav {
   width: @menu-width;
   height: 100%;
   overflow: auto;
-  padding: @line-height * 8 / 3 @gutter-width 0;
+  padding: @line-height * 7 / 3 @gutter-width 0;
+  border-right: 1px darken(@menu-color, 6%) solid;
   img {
     display: block;
     margin: 0 auto;
@@ -58,9 +59,13 @@ nav {
         float: right;
         position: relative;
         top: @line-height / 8;
+        opacity: 2 / 3;
       }
       &.current {
         color: @body-color;
+        i {
+          opacity: 1;
+        }
       }
       &:hover span {
         text-decoration: underline;
@@ -129,6 +134,7 @@ nav {
       i {
         float: right;
         margin: @line-height / 8 @gutter-width * 2 / 3 0 0;
+        opacity: 2 / 3;
       }
       &:hover {
         text-decoration: none;
@@ -146,7 +152,7 @@ article {
   position: relative;
   min-height: 100%;
   margin: 0 @gutter-width 0 @menu-width + @side;
-  padding: @line-height * 2 0 @line-height * 16 / 3;
+  padding: @line-height * 5 / 3 0 @line-height * 16 / 3;
 
   &:before {
     width: @side;
@@ -280,7 +286,8 @@ footer {
 
 .get {
   position: relative;
-  background-color: lighten(@quaternary-color, 16%);
+  background-color: lighten(@primary-color, 49%);
+  box-shadow: inset 0 1px 0 lighten(desaturate(@primary-color, 11%), 41%);
   border-radius: 0.3em;
   line-height: @line-height * 2;
   padding: 0 1em;
@@ -292,10 +299,10 @@ footer {
     padding: 0 @gutter-width;
     border-radius: 0.3em;
     color: @background-color;
-    background-color: @quaternary-color;
+    background-color: @primary-color;
     font-weight: bold;
     &:hover {
-      background-color: darken(@quaternary-color, 4%);
+      background-color: darken(@primary-color, 4%);
       span {
         text-decoration: underline;
       }
@@ -306,11 +313,12 @@ footer {
   }
   code {
     background: none;
+    color: darken(desaturate(@primary-color, 14%), 24%);
     display: block;
     padding: 0;
     &:before {
       content: '$ ';
-      color: @tertiary-color;
+      color: @primary-color;
     }
   }
 }

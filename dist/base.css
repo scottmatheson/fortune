@@ -46,7 +46,7 @@ h1 {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.125em;
   line-height: 1.5em;
   text-transform: uppercase;
   text-align: center;
@@ -96,7 +96,7 @@ h4 .anchor {
   float: right;
   font-weight: normal;
   margin-left: 0.75em;
-  color: #cdcdcd;
+  color: #cacaca;
 }
 h4 .anchor:hover {
   color: #3a9fa1;
@@ -151,7 +151,7 @@ code {
 main {
   position: relative;
   height: 100%;
-  max-width: 74em;
+  max-width: 75em;
   margin: 0 auto;
 }
 main:before {
@@ -162,17 +162,18 @@ main:before {
   right: 50%;
   width: 100%;
   height: 100%;
-  background-color: #cdcdcd;
+  background-color: #cacaca;
   z-index: -1;
 }
 nav {
   position: fixed;
   z-index: 100;
-  background-color: #ececec;
+  background-color: #e9e9e9;
   width: 15em;
   height: 100%;
   overflow: auto;
-  padding: 4em 1.5em 0;
+  padding: 3.5em 1.5em 0;
+  border-right: 1px #dadada solid;
 }
 nav img {
   display: block;
@@ -198,9 +199,13 @@ nav ul a > i {
   float: right;
   position: relative;
   top: 0.1875em;
+  opacity: 0.66666667;
 }
 nav ul a.current {
   color: #000000;
+}
+nav ul a.current i {
+  opacity: 1;
 }
 nav ul a:hover span {
   text-decoration: underline;
@@ -213,7 +218,7 @@ nav ul a:before {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #cdcdcd;
+  background-color: #cacaca;
 }
 nav ul li:last-child a:after {
   position: absolute;
@@ -223,7 +228,7 @@ nav ul li:last-child a:after {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #cdcdcd;
+  background-color: #cacaca;
 }
 nav ul.module {
   color: #575757;
@@ -249,7 +254,7 @@ nav hr {
   margin-bottom: 0.5em;
 }
 nav hr:before {
-  border-color: #cdcdcd;
+  border-color: #cacaca;
 }
 nav h3 {
   text-transform: none;
@@ -271,6 +276,7 @@ nav .bottom a {
 nav .bottom a i {
   float: right;
   margin: 0.1875em 1em 0 0;
+  opacity: 0.66666667;
 }
 nav .bottom a:hover {
   text-decoration: none;
@@ -283,7 +289,7 @@ article {
   position: relative;
   min-height: 100%;
   margin: 0 1.5em 0 19.5em;
-  padding: 3em 0 8em;
+  padding: 2.5em 0 8em;
 }
 article:before {
   width: 4.5em;
@@ -309,7 +315,7 @@ hr:before {
   left: 0;
   width: 100%;
   height: 0;
-  border-bottom: 1px #e2e2e2 solid;
+  border-bottom: 1px #dfdfdf solid;
 }
 pre {
   font-family: 'Inconsolata', 'Courier New', Courier, monospace;
@@ -317,7 +323,7 @@ pre {
   background-color: #f6f6f6;
   padding: 0.5em 0.75em;
   border-radius: 0.3em;
-  border: 1px #e2e2e2 solid;
+  border: 1px #dfdfdf solid;
   margin: 0 0 1.5em;
 }
 pre .keyword {
@@ -342,7 +348,7 @@ table {
   color: #575757;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px #e2e2e2 solid;
+  border: 1px #dfdfdf solid;
   border-radius: 0.3em;
   margin: 0 0 1.5em;
 }
@@ -430,7 +436,8 @@ footer p:last-child {
 }
 .get {
   position: relative;
-  background-color: #faefed;
+  background-color: #e1f4f4;
+  box-shadow: inset 0 1px 0 #c7e4e5;
   border-radius: 0.3em;
   line-height: 3em;
   padding: 0 1em;
@@ -443,11 +450,11 @@ footer p:last-child {
   padding: 0 1.5em;
   border-radius: 0.3em;
   color: #ffffff;
-  background-color: #e9b6ac;
+  background-color: #3a9fa1;
   font-weight: bold;
 }
 .get a:hover {
-  background-color: #e5a89c;
+  background-color: #359092;
 }
 .get a:hover span {
   text-decoration: underline;
@@ -457,12 +464,13 @@ footer p:last-child {
 }
 .get code {
   background: none;
+  color: #204040;
   display: block;
   padding: 0;
 }
 .get code:before {
   content: '$ ';
-  color: #d57762;
+  color: #3a9fa1;
 }
 .params .param {
   color: #995398;
@@ -479,12 +487,12 @@ footer p:last-child {
 .types .type:last-child:after {
   display: none;
 }
-@media screen and (max-width: 74em) {
+@media screen and (max-width: 75em) {
   article {
     margin: 0 2em 0 17em;
   }
 }
-@media screen and (max-width: 56em) {
+@media screen and (max-width: 60em) {
   #wrapper:before {
     display: none;
   }
@@ -498,7 +506,7 @@ footer p:last-child {
     position: static;
     border-right: 0;
     border-left: 0;
-    border-bottom: 1px #cdcdcd solid;
+    border-bottom: 1px #cacaca solid;
     padding-top: 1.5em;
     width: 100%;
     height: auto;
@@ -542,8 +550,9 @@ footer p:last-child {
   }
   .feature i {
     float: left;
-    font-size: 2em;
-    margin: 0 0.75em 0 0;
+    opacity: 0.66666667;
+    font-size: 1em;
+    margin: 0 0.5em 0 0;
   }
   .table-container {
     margin-bottom: 1.5em;
