@@ -151,7 +151,7 @@ code {
 main {
   position: relative;
   height: 100%;
-  max-width: 75em;
+  max-width: 76em;
   margin: 0 auto;
 }
 main:before {
@@ -487,12 +487,12 @@ footer p:last-child {
 .types .type:last-child:after {
   display: none;
 }
-@media screen and (max-width: 75em) {
+@media screen and (max-width: 76em) {
   article {
     margin: 0 2em 0 17em;
   }
 }
-@media screen and (max-width: 60em) {
+@media screen and (max-width: 59em) {
   #wrapper:before {
     display: none;
   }
