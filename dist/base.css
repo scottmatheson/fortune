@@ -137,9 +137,6 @@ code {
   border-radius: 0.3em;
   padding: 0.1em 0.3em 0.2em;
 }
-#wrapper {
-  overflow-x: hidden;
-}
 #fork {
   position: absolute;
   z-index: 200;
@@ -166,6 +163,7 @@ main:before {
   width: 100%;
   height: 100%;
   background-color: #cdcdcd;
+  z-index: -1;
 }
 nav {
   position: fixed;
@@ -518,17 +516,14 @@ footer p:last-child {
     margin-bottom: 1.5em;
   }
   nav ul a {
-    margin: 0 -2em;
+    margin: 0 -1.5em;
     padding-left: 1.5em;
     padding-right: 1.5em;
   }
   article {
-    margin: 1.5em;
-    padding-top: 0.5em;
-    padding-bottom: 9.5em;
-  }
-  article:before {
-    display: none;
+    margin: 0 1.5em;
+    padding-top: 1.5em;
+    padding-bottom: 9em;
   }
   footer img {
     margin-bottom: 0.5em;

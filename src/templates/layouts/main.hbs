@@ -15,18 +15,16 @@ layout: base.hbs
     <link rel="icon" type="image/png" href="{{assets}}/favicon.png">
   </head>
   <body>
-    <div id="wrapper">
-      <a href="//github.com/daliwali/fortune" id="fork">
-        <img src="{{assets}}/fork.svg" alt="Fork Me!">
-      </a>
-      <main>
-        {{>menu}}
-        <article>
-          {{>body}}
-          {{>footer}}
-        </article>
-      </main>
-    </div>
+    <a href="//github.com/daliwali/fortune" id="fork">
+      <img src="{{assets}}/fork.svg" alt="Fork Me!">
+    </a>
+    <main>
+      {{>menu}}
+      <article>
+        {{>body}}
+        {{>footer}}
+      </article>
+    </main>
     {{>scripts}}
   </body>
 </html>
