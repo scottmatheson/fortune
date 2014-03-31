@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['scripts/**/*.js'],
+        src: ['src/scripts/**/*.js'],
         dest: 'dist/core.bundle.js'
       }
     },
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          'dist/base.css': ['style/base.less']
+          'dist/base.css': ['src/style/base.less']
         }
       }
     },
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
           }
           ['fortune', 'adapter'].forEach(function(module) {
             commands.push(
-              'dox < fortune/lib/' + module + '.js > docs/' + module + '.json'
+              'dox < fortune/lib/' + module + '.js > src/data/' + module + '.json'
             );
           });
           return commands.join(' && ');
@@ -61,54 +61,59 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      content: {
+        files: [{
+          expand: true,
+          cwd: 'src/content/',
+          src: ['**/*.html'],
+          dest: './'
+        }]
+      }
+    },
+
+    clean: {
+      content: [
+        'src/content/**/*.html'
+      ]
+    },
+
     assemble: {
       options: {
-        assets: 'dist',
-        helpers: 'helpers/*.js',
+        assets: 'src/content/dist',
+        helpers: 'src/helpers/*.js',
         layout: 'main.hbs',
-        layoutdir: 'templates/layouts',
-        partials: ['templates/partials/**/*.hbs'],
-        data: ['docs/**/*.json'],
+        layoutdir: 'src/templates/layouts',
+        partials: ['src/templates/partials/**/*.hbs'],
+        data: ['src/data/**/*.json'],
         marked: {
           sanitize: false,
           gfm: true,
           breaks: true
         }
       },
-      home: {
-        src: ['templates/index.hbs'],
-        dest: 'index.html'
-      },
-      docs: {
-        src: ['templates/docs.hbs'],
-        dest: 'docs/index.html'
-      },
-      guide: {
-        src: ['templates/guide.hbs'],
-        dest: 'guide/index.html'
-      },
-      404: {
-        src: ['templates/404.hbs'],
-        dest: '404.html'
+      content: {
+        src: ['src/content/**/*.hbs'],
+        dest: './'
       }
     },
 
     watch: {
       scripts: {
-        files: ['scripts/**/*.js'],
+        files: ['src/scripts/**/*.js'],
         tasks: ['concat', 'uglify']
       },
       stylesheets: {
-        files: ['style/**/*.less'],
-        tasks: 'less'
+        files: ['src/style/**/*.less'],
+        tasks: ['less']
       },
       source: {
         files: [ 'fortune/lib/**/*.js' ],
-        tasks: ['exec', 'assemble']
+        tasks: ['exec', 'assemble', 'copy', 'clean']
       },
-      template: {
-        files: ['**/*.hbs'],
-        tasks: 'assemble'
+      templates: {
+        files: ['src/**/*.hbs'],
+        tasks: ['assemble', 'copy', 'clean']
       }
     },
 
@@ -122,16 +127,19 @@ module.exports = function(grunt) {
 
   });
 
-  [
+  var tasks = [
     'assemble',
     'grunt-exec',
     'grunt-contrib-concat',
     'grunt-contrib-less',
     'grunt-contrib-uglify',
     'grunt-contrib-connect',
+    'grunt-contrib-copy',
+    'grunt-contrib-clean',
     'grunt-contrib-watch'
-  ]
-  .forEach(function(task) {
+  ];
+
+  tasks.forEach(function(task) {
     grunt.loadNpmTasks(task);
   });
 
@@ -141,6 +149,8 @@ module.exports = function(grunt) {
     'less',
     'exec',
     'assemble',
+    'copy',
+    'clean',
     'connect',
     'watch'
   ]);

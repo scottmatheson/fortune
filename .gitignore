@@ -1,3 +1,4 @@
 node_modules/
 fortune/
-data/
+src/data/
+src/content/**/*.html
