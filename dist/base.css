@@ -46,7 +46,7 @@ h1 {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1em;
   font-weight: bold;
-  letter-spacing: 0.125em;
+  letter-spacing: 0.16666667em;
   line-height: 1.5em;
   text-transform: uppercase;
   text-align: center;
@@ -162,7 +162,7 @@ main:before {
   right: 50%;
   width: 100%;
   height: 100%;
-  background-color: #cacaca;
+  background-color: #dadada;
   z-index: -1;
 }
 nav {
