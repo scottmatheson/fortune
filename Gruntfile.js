@@ -46,14 +46,10 @@ module.exports = function(grunt) {
       compile: {
         cmd: function() {
           var commands = [];
-          if(grunt.file.isDir('fortune')) {
-            commands.push('cd fortune', 'git pull origin master', 'cd ..');
-          } else {
-            commands.push('git clone https://github.com/daliwali/fortune.git');
-          }
           ['fortune', 'adapter'].forEach(function(module) {
             commands.push(
-              'dox < fortune/lib/' + module + '.js > src/data/' + module + '.json'
+              'dox < node_modules/fortune/lib/' + module +
+              '.js > src/data/' + module + '.json'
             );
           });
           return commands.join(' && ');
@@ -62,6 +58,12 @@ module.exports = function(grunt) {
     },
 
     copy: {
+      package: {
+        files: [{
+          src: 'node_modules/fortune/package.json',
+          dest: 'src/data/package.json'
+        }]
+      },
       content: {
         files: [{
           expand: true,
@@ -109,11 +111,11 @@ module.exports = function(grunt) {
       },
       source: {
         files: [ 'fortune/lib/**/*.js' ],
-        tasks: ['exec', 'assemble', 'copy', 'clean']
+        tasks: ['exec', 'assemble', 'copy:content', 'clean']
       },
       templates: {
         files: ['src/**/*.hbs'],
-        tasks: ['assemble', 'copy', 'clean']
+        tasks: ['assemble', 'copy:content', 'clean']
       }
     },
 
@@ -148,8 +150,9 @@ module.exports = function(grunt) {
     'uglify',
     'less',
     'exec',
+    'copy:package',
     'assemble',
-    'copy',
+    'copy:content',
     'clean',
     'connect',
     'watch'
