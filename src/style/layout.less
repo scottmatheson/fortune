@@ -67,7 +67,7 @@ nav {
           opacity: 1;
         }
       }
-      &:hover span {
+      &:hover span:not(.fa) {
         text-decoration: underline;
       }
       &:before {
@@ -138,7 +138,7 @@ nav {
       }
       &:hover {
         text-decoration: none;
-        span {
+        span:not(.fa) {
           text-decoration: underline;
         }
       }
@@ -147,7 +147,7 @@ nav {
 }
 
 article {
-  @side: @gutter-width * 10 / 3;
+  @side: @gutter-width * 3;
   background-color: @background-color;
   position: relative;
   min-height: 100%;
@@ -303,7 +303,7 @@ footer {
     font-weight: bold;
     &:hover {
       background-color: darken(@primary-color, 4%);
-      span {
+      span:not(.fa) {
         text-decoration: underline;
       }
     }
