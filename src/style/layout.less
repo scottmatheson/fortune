@@ -55,7 +55,7 @@ nav {
       position: relative;
       display: block;
       padding: @line-height / 3 0 @line-height / 3 0;
-      & > i {
+      & > .fa:not(em) {
         float: right;
         position: relative;
         top: @line-height / 8;
@@ -63,7 +63,7 @@ nav {
       }
       &.current {
         color: @body-color;
-        i {
+        .fa {
           opacity: 1;
         }
       }
@@ -131,7 +131,7 @@ nav {
       display: block;
       margin-right: -@gutter-width * 2 / 3;
       color: @primary-color;
-      i {
+      .fa {
         float: right;
         margin: @line-height / 8 @gutter-width * 2 / 3 0 0;
         opacity: 2 / 3;
@@ -273,7 +273,7 @@ footer {
   width: 100% / 3;
   padding: 0 @gutter-width;
   text-align: center;
-  i {
+  .fa {
     @size: 3;
     font-size: 1em * @size;
     line-height: @line-height;
@@ -286,8 +286,8 @@ footer {
 
 .get {
   position: relative;
-  background-color: lighten(@primary-color, 49%);
-  box-shadow: inset 0 1px 0 lighten(desaturate(@primary-color, 11%), 41%);
+  background-color: lighten(desaturate(@primary-color, 7%), 56%);
+  box-shadow: inset 0 1px 0 lighten(desaturate(@primary-color, 21%), 46%);
   border-radius: 0.3em;
   line-height: @line-height * 2;
   padding: 0 1em;
@@ -308,7 +308,7 @@ footer {
       }
     }
   }
-  i {
+  .fa {
     margin-right: @gutter-width / 3;
   }
   code {

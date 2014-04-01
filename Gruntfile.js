@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 
     concat: {
       options: {
+        banner: '<%= meta.banner %>',
         separator: ';'
       },
       dist: {
@@ -23,10 +24,10 @@ module.exports = function(grunt) {
     less: {
       dist: {
         options: {
-          yuicompress: true
+          compress: true
         },
         files: {
-          'dist/base.css': ['src/style/base.less']
+          'dist/css/base.min.css': ['src/style/base.less']
         }
       }
     },
@@ -71,6 +72,24 @@ module.exports = function(grunt) {
           src: ['**/*.html'],
           dest: './'
         }]
+      },
+      icons: {
+        files: [
+          {
+            expand: true,
+            cwd: 'bower_components/font-awesome/',
+            src: ['css/*.min.css', 'fonts/*'],
+            dest: 'dist/'
+          }
+        ]
+      }
+    },
+
+    bower: {
+      install: {
+        options: {
+          copy: false
+        }
       }
     },
 
@@ -100,6 +119,19 @@ module.exports = function(grunt) {
       }
     },
 
+    prettify: {
+      options: {
+        condense: true,
+        brace_style: 'collapse'
+      },
+      html: {
+        expand: true,
+        cwd: 'src/content/',
+        src: ['**/*.html'],
+        dest: 'src/content/'
+      }
+    },
+
     watch: {
       scripts: {
         files: ['src/scripts/**/*.js'],
@@ -109,13 +141,9 @@ module.exports = function(grunt) {
         files: ['src/style/**/*.less'],
         tasks: ['less']
       },
-      source: {
-        files: [ 'fortune/lib/**/*.js' ],
-        tasks: ['exec', 'assemble', 'copy:content', 'clean']
-      },
       templates: {
         files: ['src/**/*.hbs'],
-        tasks: ['assemble', 'copy:content', 'clean']
+        tasks: ['assemble', 'prettify', 'copy:content', 'clean']
       }
     },
 
@@ -132,6 +160,8 @@ module.exports = function(grunt) {
   var tasks = [
     'assemble',
     'grunt-exec',
+    'grunt-prettify',
+    'grunt-bower-task',
     'grunt-contrib-concat',
     'grunt-contrib-less',
     'grunt-contrib-uglify',
@@ -146,13 +176,16 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', [
+    'bower',
     'concat',
     'uglify',
     'less',
     'exec',
     'copy:package',
     'assemble',
+    'prettify',
     'copy:content',
+    'copy:icons',
     'clean',
     'connect',
     'watch'
