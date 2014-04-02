@@ -47,6 +47,8 @@ module.exports = function(grunt) {
       compile: {
         cmd: function() {
           var commands = [];
+
+          commands.push('mkdir -p src/data/');
           ['fortune', 'adapter'].forEach(function(module) {
             commands.push(
               'dox < node_modules/fortune/lib/' + module +
