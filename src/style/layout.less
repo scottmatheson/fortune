@@ -286,8 +286,8 @@ footer {
 
 .get {
   position: relative;
-  background-color: lighten(desaturate(@primary-color, 7%), 56%);
-  box-shadow: inset 0 1px 0 lighten(desaturate(@primary-color, 21%), 46%);
+  background-color: lighten(desaturate(@primary-color, 40%), 66%);
+  box-shadow: inset 0 1px 0 lighten(desaturate(@primary-color, 52%), 56%);
   border-radius: 0.3em;
   line-height: @line-height * 2;
   padding: 0 1em;
@@ -299,10 +299,10 @@ footer {
     padding: 0 @gutter-width;
     border-radius: 0.3em;
     color: @background-color;
-    background-color: @primary-color;
+    background-color: lighten(@primary-color, 4%);
     font-weight: bold;
     &:hover {
-      background-color: darken(@primary-color, 4%);
+      background-color: @primary-color;
       span:not(.fa) {
         text-decoration: underline;
       }
@@ -313,7 +313,7 @@ footer {
   }
   code {
     background: none;
-    color: darken(desaturate(@primary-color, 14%), 24%);
+    color: darken(desaturate(@primary-color, 14%), 18%);
     display: block;
     padding: 0;
     &:before {

@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
+
     meta: {
       banner: '/*! \n * <%= pkg.name %>\n * Built on ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -66,6 +67,16 @@ module.exports = function(grunt) {
           src: 'node_modules/fortune/package.json',
           dest: 'src/data/package.json'
         }]
+      },
+      media: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/media/',
+            src: ['**/*'],
+            dest: 'dist/'
+          }
+        ]
       },
       content: {
         files: [{
@@ -184,6 +195,7 @@ module.exports = function(grunt) {
     'less',
     'exec',
     'copy:package',
+    'copy:media',
     'assemble',
     'prettify',
     'copy:content',
