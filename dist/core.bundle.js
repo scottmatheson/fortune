@@ -1,6 +1,6 @@
 /*! 
  * fortune-web
- * Built on 2014-04-01
+ * Built on 2014-04-07
  * http://fortunejs.com
  */
 ;

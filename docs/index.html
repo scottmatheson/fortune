@@ -122,15 +122,17 @@
           <li><code>username</code>: username for logging into the database. This may be optional for MongoDB.</li>
           <li><code>password</code>: password for logging into the database. This may be optional for MongoDB.</li>
           <li><code>flags</code>: an object containing additional options to pass to the adapter.</li>
+          <li>`path': relative path to directory where your database will be stored</li>
         </ul>
         <h3>Fortune setup</h3>
         <ul>
-          <li><code>baseUrl</code>: if this is set, then your API gets upgraded to URL-style JSON API.</li>
+          <li><code>baseUrl</code>: optional prefix for URLs, i.e. <code><a href='http://api.example.com'>http://api.example.com</a></code>.</li>
           <li><code>namespace</code>: optional namespace for your API, i.e. <code>api/v1</code>.</li>
+          <li><code>inflect</code>: Whether strings should automatically be pluralized. Default: <code>true</code>.</li>
           <li><code>suffix</code>: optional suffix to every route, for example, <code>/posts.json</code>, <code>/posts/1.json</code>, <code>/posts/1/comments.json</code>.</li>
           <li><code>cors</code>: boolean value indicating whether or not to enable Cross Origin Resource Sharing (CORS), or an object that contains additional configuration keys: <code>headers</code> (Array), <code>methods</code> (Array), <code>origins</code> (Array),
             and <code>credentials</code> (Boolean). Default: true.</li>
-          <li><code>production</code>: boolean value indicating whether or not to strip spaces from responses. Default: false.</li>
+          <li><code>environment</code>: if this is set to <code>"production"</code>, responses will have whitespace stripped. Default: <code>process.env.NODE_ENV</code>.</li>
         </ul>
         <p><em>Note: in order to use database adapters, you must install <code>fortune-mongodb</code> for MongoDB, or <code>fortune-relational</code> for relational databases.</em>
         </p>
@@ -193,9 +195,9 @@
           <br />The callback function has two optional parameters, the request and response objects, respectively.
           <br />It may return either the resource or a promise. Here's a contrived
           <br />example that stores the Authorization header into a resource:</p>
-        <div class="highlight"><pre lang="javascript">app.before('resource', function(request, response) {
+        <div class="highlight"><pre lang="javascript">app.before('resource', function (request, response) {
   var authorization = request.get('Authorization');
-  if(!authorization) throw new Error('Authorization failed');
+  if (!authorization) throw new Error('Authorization failed');
   this.authorization = authorization;
   return this;
 });
@@ -229,7 +231,7 @@
           <br />The callback function has two optional parameters, the request and response objects, respectively.
           <br />It may return either the resource or a promise. Here's a contrived
           <br />example that hides a <code>password</code> and <code>salt</code> from being exposed:</p>
-        <div class="highlight"><pre lang="javascript">app.after('user', function() {
+        <div class="highlight"><pre lang="javascript">app.after('user', function () {
   delete this.password;
   delete this.salt;
   return this;

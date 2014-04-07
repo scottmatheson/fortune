@@ -49,6 +49,7 @@ module.exports = function(grunt) {
         cmd: function() {
           var commands = [];
 
+          commands.push('npm install');
           commands.push('mkdir -p src/data/');
           ['fortune', 'adapter'].forEach(function(module) {
             commands.push(

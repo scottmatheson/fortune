@@ -10,7 +10,7 @@
     "url": "https://github.com/daliwali/fortune"
   },
   "dependencies": {
-    "fortune": "*",
+    "fortune": "~0.2.0",
     "lodash": "~2.4.1",
     "js-beautify": "~1.4.2",
     "grunt": "~0.4.4",
