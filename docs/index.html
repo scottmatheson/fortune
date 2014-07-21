@@ -121,8 +121,9 @@
           <li><code>port</code>: the port of the database machine. Do not set this unless you do not plan on using the default port for the database.</li>
           <li><code>username</code>: username for logging into the database. This may be optional for MongoDB.</li>
           <li><code>password</code>: password for logging into the database. This may be optional for MongoDB.</li>
-          <li><code>flags</code>: an object containing additional options to pass to the adapter.</li>
+          <li><code>flags</code>: an optional hash containing additional options to pass to the adapter.</li>
           <li><code>path</code>: relative path to directory where your database will be stored (NeDB specific). Default: <code>./data/</code>.</li>
+          <li><code>connectionString</code>: an optional string that overrides all database connection options, this is specific to the adapter. Default: <code>''</code>.</li>
         </ul>
         <h3>Fortune setup</h3>
         <ul>
@@ -164,6 +165,7 @@
         <div class="highlight"><pre lang="javascript">{type: String} // no association
 {ref: 'relatedResource', inverse: 'relatedKey'} // "belongs to" association to "relatedKey" key on "relatedResource"
 [{ref: 'anotherResource', inverse: 'someKey'}] // "has many" association to "someKey" on "anotherResource"
+[{ref: 'anotherResource', inverse: null}] // "has many" one-way association to "anotherResource"
 </pre>
         </div>
         <h4>Parameters</h4>
